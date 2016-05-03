@@ -1,18 +1,21 @@
 FROM ubuntu:14.04.4
-MAINTAINER caseyjlaw@gmail.com
+MAINTAINER Bradley Meyers <bradley.meyers1993@gmail.com>
 
 WORKDIR /home
 
 RUN echo 'deb http://us.archive.ubuntu.com/ubuntu trusty main multiverse' >> /etc/apt/sources.list
-RUN apt-get update -y && apt-get install -y emacs libcfitsio3 libcfitsio3-dev pgplot5 wget libgsl0-dev \
-    python python-pip python-numpy python-scipy python-matplotlib ipython x11-apps gfortran git \
-    libglib2.0-dev pkg-config
+RUN apt-get update -y && apt-get install -y make gcc emacs libcfitsio3 libcfitsio3-dev pgplot5 wget \
+    libgsl0-dev python python-pip python-numpy python-scipy python-matplotlib ipython x11-apps gfortran git \
+    libglib2.0-dev pkg-config libxml2 libxml2-dev tcsh
+
+
 
 RUN cd /usr/local && wget https://storage.googleapis.com/student_tools/pulsar64.tar.gz && tar xvfz pulsar64.tar.gz
 RUN cd / && wget https://storage.googleapis.com/student_tools/sigproc.tar.gz && tar xvfz sigproc.tar.gz
 RUN ln -s /usr/lib/x86_64-linux-gnu/libcfitsio.so /usr/lib/x86_64-linux-gnu/libcfitsio.so.0
 RUN wget http://www.atnf.csiro.au/people/pulsar/psrcat/downloads/psrcat_pkg.tar.gz && tar xvfz psrcat_pkg.tar.gz && cd psrcat_tar && bash makeit 
 RUN cp /home/psrcat_tar/psrcat /usr/local/pulsar64/bin/psrcat && cp /home/psrcat_tar/psrcat.db /usr/local/pulsar64/include/psrcat.db
+
 
 ENV PSR64 /usr/local/pulsar64
 ENV PYTHONBASE /usr/lib/local
