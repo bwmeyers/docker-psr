@@ -17,11 +17,11 @@ Like most applied software, pulsar software is heterogeneous and challenging to 
 You'll find the pulsar software in /home/pulsar-software and environment variables as typical. 
 
 # Using
-To build, after forking this repo or the original (https://github.com/caseyjlaw/docker-psr) and pulling:
+To build your own version, after forking this repo or the original (https://github.com/caseyjlaw/docker-psr) and pulling:
 
     docker build -t bwmeyers/mwa-pulsar-stack .
 
-To run image available in docker hub:
+To run the image available in docker hub:
 
     docker run -i -t bwmeyers/mwa-pulsar-stack bash
 
