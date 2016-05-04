@@ -39,6 +39,8 @@ Please read the Docker documentation to make sure the above is suitable for you 
 
 New users may also find "docker do" useful to run pulsar tools without interactively running bash in a container. See https://github.com/deepgram/sidomo for more info.
 
+The docker hub for this mwa-pulsar-stack can be found here: https://hub.docker.com/r/bwmeyers/mwa-pulsar-stack/
+
 # Issues
 
 Report problems to bradley.meyers1993@gmail.com  
