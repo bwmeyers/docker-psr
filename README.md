@@ -17,11 +17,11 @@ Like most applied software, pulsar software is heterogeneous and challenging to 
 You'll find the pulsar software in /home/pulsar-software and environment variables as typical. 
 
 # Using
-To build, after forking this repo or the original (https://github.com/caseyjlaw/docker-psr) and pulling:
+To build your own version, after forking this repo or the original (https://github.com/caseyjlaw/docker-psr) and pulling:
 
     docker build -t bwmeyers/mwa-pulsar-stack .
 
-To run image available in docker hub:
+To run the image available in docker hub:
 
     docker run -i -t bwmeyers/mwa-pulsar-stack bash
 
@@ -38,6 +38,8 @@ To get x11 tunneling working nicely, so you can see the usual PGPLOT outputs, yo
 Please read the Docker documentation to make sure the above is suitable for you system/network. In the above run, you will no longer have full root premissions.
 
 New users may also find "docker do" useful to run pulsar tools without interactively running bash in a container. See https://github.com/deepgram/sidomo for more info.
+
+The docker hub for this mwa-pulsar-stack can be found here: https://hub.docker.com/r/bwmeyers/mwa-pulsar-stack/
 
 # Issues
 
