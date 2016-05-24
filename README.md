@@ -23,19 +23,19 @@ To build your own version, after forking this repo or the original (https://gith
 
 To run the image available in docker hub:
 
-    docker run -i -t bwmeyers/mwa-pulsar-stack bash
+    docker run -i -t bwmeyers/mwa-pulsar-stack
 
-You can mount your data directory into the docker container with the -v flag, so:
+You can mount your data directory into the docker container with the -v flag, e.g.
 
-    docker run -i -t -v /path/to/local/directory:/data bwmeyers/mwa-pulsar-stack bash
+    docker run -i -t -v /path/to/local/directory:/data bwmeyers/mwa-pulsar-stack
 
 This will drop you in to an Ubuntu 14.04 OS with bash shell with all data in /data. Be careful as any data removed from /data in the container will also be removed from the local directory which you mounted to /data.
 
 To get x11 tunneling working nicely, so you can see the usual PGPLOT outputs, you'll need to use the following:
 
-   `docker run -i -t --rm -e DISPLAY=$DISPLAY -u $(id -u) -v /tmp/.X11-unix:/tmp/.X11-unix:ro bwmeyers/mwa-pulsar-stack bash`
+   `docker run -i -t --rm -e DISPLAY=$DISPLAY -u $(id -u) -v /tmp/.X11-unix:/tmp/.X11-unix:ro bwmeyers/mwa-pulsar-stack`
 
-Please read the Docker documentation to make sure the above is suitable for you system/network. In the above run, you will no longer have full root premissions.
+Please read the Docker documentation to make sure the above is suitable for you system/network. In the above run command, you will no longer have full root premissions.
 
 New users may also find "docker do" useful to run pulsar tools without interactively running bash in a container. See https://github.com/deepgram/sidomo for more info.
 
