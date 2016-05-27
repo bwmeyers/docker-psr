@@ -73,7 +73,7 @@ ENV PKG_CONFIG_PATH /usr/lib/x86_64-linux-gnu:$PKG_CONFIG_PATH
 RUN cd $TEMPO && wait && ./prepare && wait && ./configure F77=gfortran --prefix=$PSRHOME && make && make install
 
 # edit the obsys.dat database to contain the MWA's position
-RUN cd $TEMPO/ && echo "-2559454.08    5095372.14      -2849057.18     1  MWA                 k  MA" >> obsys.dat
+#RUN cd $TEMPO/ && echo "-2559454.08    5095372.14      -2849057.18     1  MWA                 k  MA" >> obsys.dat
 
 
 ##################
@@ -109,8 +109,8 @@ RUN cd $DSPSR && wait && ./bootstrap ; ./bootstrap && wait && ./configure F77=gf
 #RUN cd $PRESTO/src && cat Makefile | sed 's;FFTINC := $(shell pkg-config --cflags fftw3f);FFTINC = -I$($PSRHOME)/include;g' | sed 's;FFTLINK := $(shell pkg-config --libs fftw3f);FFTLINK = -L$(PSRHOME)/lib -lfftw3f;g' > Makefile_2 && mv Makefile Makefile_original && mv Makefile_2 Makefile
 
 # alter some of the source code to specifically allow the usage of the MWA
-RUN cd $PRESTO/src && sed -i "/strcpy(outname, "LWA1");/a} else if (strcmp(scope, "mwa") == 0 ) {\nstrcpy(obscode, "MW");\nstrcpy(outname, "MWA128T");" misc_utils.c
-RUN cd $PRESTO/src && sed -i "/} else if (strcmp(idata->telescope, "SRT") == 0) {/i} else if (strcmp(idata->telescope, "MWA") == 0) {\nscopechar = 'k';\ntracklen = 12;" polycos.c
+#RUN cd $PRESTO/src && sed -i "/strcpy(outname, "LWA1");/a} else if (strcmp(scope, "mwa") == 0 ) {\nstrcpy(obscode, "MW");\nstrcpy(outname, "MWA128T");" misc_utils.c
+#RUN cd $PRESTO/src && sed -i "/} else if (strcmp(idata->telescope, "SRT") == 0) {/i} else if (strcmp(idata->telescope, "MWA") == 0) {\nscopechar = 'k';\ntracklen = 12;" polycos.c
 
 RUN cd $PRESTO/src && make makewisdom && make prep && make && make clean
 
